@@ -21,7 +21,9 @@ public class CurrencyExchangeController {
 	
 	@GetMapping("/currency-exchange/from/{from}/to/{to}")
 	public ExchangeValue retrieveExchangeValue
-		(@PathVariable String from, @PathVariable String to){
+		(@PathVariable String from, @PathVariable String to) throws InterruptedException{
+		
+		//Thread.sleep(11000);
 		
 		ExchangeValue exchangeValue = 
 				repository.findByFromAndTo(from, to);
